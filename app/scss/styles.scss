@@ -1,0 +1,8 @@
+$hitam : #000;
+$putih : #fff;
+
+.kotak-hitam {
+  background: $hitam;
+  color: $putih;
+  width: percentage(5/7);
+}
