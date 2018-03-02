@@ -1,4 +1,6 @@
 1. npm install gulp --save-dev
 2. npm install gulp-sass --save-dev
 3. npm install browser-sync --save-dev
-4. 
+4. npm install gulp-useref --save-dev
+5. npm install gulp-uglify --save-dev 
+6. npm install gulp-cssnano
