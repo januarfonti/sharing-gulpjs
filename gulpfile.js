@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
+var cache = require('gulp-cache');
 
 
 gulp.task('hello', function() {
@@ -51,8 +52,8 @@ gulp.task('useref', function() {
 gulp.task('images', function() {
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
     // Caching images that ran through imagemin
-    .pipe(imagemin({
+    .pipe(cache(imagemin({
       interlaced: true,
-    }))
+    })))
     .pipe(gulp.dest('dist/images'))
 });
