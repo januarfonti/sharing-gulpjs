@@ -7,3 +7,4 @@
 7. npm install gulp-imagemin --save-dev
 8. npm install gulp-cache --save-dev
 9. npm install del --save-dev
+10. npm install run-sequence --save-dev

@@ -8,6 +8,7 @@ var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
+var runSequence = require('run-sequence');
 
 
 gulp.task('hello', function() {
@@ -69,3 +70,21 @@ gulp.task('clean', function() {
 gulp.task('clean:dist', function() {
   return del.sync(['dist/**/*', '!dist/images', '!dist/images/**/*']);
 });
+
+// Build Sequences
+// ---------------
+
+gulp.task('default', function(callback) {
+  runSequence(['sass', 'browserSync'], 'watch',
+    callback
+  )
+})
+
+gulp.task('build', function(callback) {
+  runSequence(
+    'clean:dist',
+    'sass',
+    ['useref', 'images'],
+    callback
+  )
+})
