@@ -6,3 +6,4 @@
 6. npm install gulp-cssnano
 7. npm install gulp-imagemin --save-dev
 8. npm install gulp-cache --save-dev
+9. npm install del --save-dev

@@ -7,6 +7,7 @@ var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
+var del = require('del');
 
 
 gulp.task('hello', function() {
@@ -56,4 +57,15 @@ gulp.task('images', function() {
       interlaced: true,
     })))
     .pipe(gulp.dest('dist/images'))
+});
+
+// Cleaning 
+gulp.task('clean', function() {
+  return del.sync('dist').then(function(cb) {
+    return cache.clearAll(cb);
+  });
+})
+
+gulp.task('clean:dist', function() {
+  return del.sync(['dist/**/*', '!dist/images', '!dist/images/**/*']);
 });
